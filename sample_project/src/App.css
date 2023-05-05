@@ -52,9 +52,14 @@ table {
 
 
 .restaurantCard{
-  width:20%;
-  border:1px solid black;
+  width:23%;
   border-radius: 5px;
+  margin:1%;
+}
+
+.restaurantCard:hover{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: all 0.3s ease-in-out;
 }
 
 .bodyContainer{
@@ -79,6 +84,12 @@ table {
   color: white;
 }
 
+.site-wrapper{
+  width:100%;
+  max-width:1920px;
+  margin:0 auto;
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -91,3 +102,39 @@ table {
     transform: rotate(360deg);
   }
 }
+
+@media only screen and (max-width: 992px) {
+  .restaurantCard{
+    width:31%;
+    margin:1%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .restaurantCard{
+    min-width:31%;
+    margin:1%;
+  }
+
+  .bodyContainer{
+    display:flex;
+    flex-wrap:nowrap;
+    max-width:100%;
+    overflow-x:scroll;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .restaurantCard{
+    min-width:45%;
+    margin:2%;
+  }
+  
+.bodyContainer{
+  display:flex;
+  flex-wrap:nowrap;
+  max-width:100%;
+  overflow-x:scroll;
+}
+}
+

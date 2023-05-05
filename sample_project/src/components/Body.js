@@ -1,7 +1,6 @@
 import React from "react";
 import Restaurantcard from "./Restaurantcard"
 
-
 const Body = () => {
   const cards = [
     {
@@ -844,9 +843,9 @@ const Body = () => {
       "subtype": "basic"
     }
   ]
-
   return (
-    <div className="bodyContainer">
+    <>
+    <div className="bodyContainer container">
       {
         cards.map((card) => (
           <Restaurantcard {...card.data}/>
@@ -855,6 +854,7 @@ const Body = () => {
       }
     
     </div>
+    </>
   )
 }
 

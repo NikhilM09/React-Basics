@@ -17,6 +17,7 @@ const TextForm = () => {
         fontSize:'20px'
     }
     const[mode, setMode] = useState(lightMode);
+    console.log("mode",mode);
 
     const handleChange = (event) => {
         // console.log(event);
@@ -31,7 +32,7 @@ const TextForm = () => {
     
 
     const toggleMode = () => {
-        if(mode == lightMode){
+        if(mode.backgroundColor=== 'white'){
             setMode(darkMode);
             console.log(darkMode);
         }

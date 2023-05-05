@@ -5,11 +5,11 @@ import Body from './components/Body';
 
 function App() {
   return (
-    <>
+    <div className="site-wrapper">
       <Header logo="Navbar" label1="Home" label2="About" label3="Enabled" />
       {/* <TextForm/> */}
       <Body/>
-    </>
+    </div>
   );
 }
 
