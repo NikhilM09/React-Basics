@@ -32,7 +32,7 @@ const TextForm = () => {
     
 
     const toggleMode = () => {
-        if(mode.backgroundColor=== 'white'){
+        if(mode.color==='black'){
             setMode(darkMode);
             console.log(darkMode);
         }

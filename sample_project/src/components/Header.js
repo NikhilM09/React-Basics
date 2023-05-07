@@ -1,9 +1,10 @@
+import {useState} from 'react';
 
-
-const Header = ({logo, label1, label2, label3}) => {
-    // console.log("props", props);
+const Header = ({logo, label1, label2, label3, label4}) => {
+    // console.log("render is called");
+    const [title, setTitle] = useState("navbar");
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-warning shadow">
+        <nav className="navbar navbar-expand-lg navbar-light bg-warning shadow sticky-top">
             <div className="container">
                 <a className="navbar-brand" href="#">{logo}</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,6 +31,9 @@ const Header = ({logo, label1, label2, label3}) => {
                         </li> */}
                         <li className="nav-item">
                             <a className="nav-link text-dark" href="#" tabIndex="-1" aria-disabled="true">{label3}</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link text-dark" href="#" tabIndex="-1" aria-disabled="true">{label4}</a>
                         </li>
                     </ul>
                     {/* <form className="d-flex">

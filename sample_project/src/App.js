@@ -6,7 +6,7 @@ import Body from './components/Body';
 function App() {
   return (
     <div className="site-wrapper">
-      <Header logo="Navbar" label1="Home" label2="About" label3="Enabled" />
+      <Header logo="Navbar" label1="Home" label2="About" label3="Contact Us" label4="Cart" />
       {/* <TextForm/> */}
       <Body/>
     </div>
