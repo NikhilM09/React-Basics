@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import {Link} from 'react-router-dom';
 
 const Header = ({logo, label1, label2, label3, label4}) => {
     // console.log("render is called");
@@ -13,10 +14,10 @@ const Header = ({logo, label1, label2, label3, label4}) => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <a className="nav-link text-dark" aria-current="page" href="#">{label1}</a>
+                            <Link className="nav-link text-dark" aria-current="page" to="">{label1}</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link text-dark" href="#">{label2}</a>
+                            <Link className="nav-link text-dark" to={"/"+label2}>{label2}</Link>
                         </li>
                         {/* <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -30,10 +31,10 @@ const Header = ({logo, label1, label2, label3, label4}) => {
                             </ul>
                         </li> */}
                         <li className="nav-item">
-                            <a className="nav-link text-dark" href="#" tabIndex="-1" aria-disabled="true">{label3}</a>
+                            <Link className="nav-link text-dark" to={"/"+label3} tabIndex="-1" aria-disabled="true">{label3}</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link text-dark" href="#" tabIndex="-1" aria-disabled="true">{label4}</a>
+                            <Link className="nav-link text-dark" to="/dynamic" tabIndex="-1" aria-disabled="true">{label4}</Link>
                         </li>
                     </ul>
                     {/* <form className="d-flex">

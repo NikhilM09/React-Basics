@@ -1,7 +1,7 @@
 import React from "react";
 import Restaurantcard from "./Restaurantcard"
 import { useState, useEffect } from "react";
-import search from "../assets/icons/search-interface-symbol.png"
+import Searchbar from "./Searchbar";
 
 const Body = () => {
   const cards = [
@@ -846,14 +846,9 @@ const Body = () => {
     }
   ]
 
-  const [searchText, setSearchText] = useState("");
   const [ cardArray, setCardArray ] = useState([]);
   const [masterCards, setMasterCards] = useState("");
 
-  const searchRestaurant = () => {
-    const filteredRestaurants = masterCards.filter((item) => { return item?.data?.name?.toLowerCase().includes(searchText.toLowerCase()) });
-    setCardArray(filteredRestaurants);
-  }
    
   async function getRestaurantData(){
     const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&page_type=DESKTOP_WEB_LISTING");
@@ -868,12 +863,9 @@ const Body = () => {
 
   console.log("rendered");
 
-  return cardArray.length===0 ? <h1>Loading....</h1> : (
+  return cardArray?.length===0 ? <h1>Loading....</h1> : (
     <div className="container">
-      <div className="searchWrapper">
-        <input className="p-2" type="text" value={searchText} onChange={(e)=>setSearchText(e.target.value)} placeholder="Search for restaurant" />
-        <img src={search} className="search" alt="search_icon" onClick={searchRestaurant}/>
-      </div>
+      <Searchbar cardCollection={masterCards} updater={setCardArray} placeholder="Search for Restaurant" />
       <div className="bodyContainer container">
         {
           cardArray.map((card) => (

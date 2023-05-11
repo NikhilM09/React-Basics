@@ -1,6 +1,6 @@
 
 
-const Restaurantcard = ({cloudinaryImageId, name, cuisines, avgRating, costForTwoString}) => {
+const Restaurantcard = ({cloudinaryImageId, name, cuisines, avgRating, costForTwoString, aggregatedDiscountInfo}) => {
 const url = "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
 
 //    console.log(props,"props");
@@ -11,6 +11,7 @@ const url = "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_au
             <h6 className="mb-2 text-secondary">{cuisines.join("✌️ ")}</h6>
             <h6 className="mb-2">Rating {avgRating}/5</h6>
             <h6 className="mb-2">{costForTwoString}</h6>
+            <h6 className="mb-2">Offer : {aggregatedDiscountInfo?.header}</h6>
         </div>
     )
 }
