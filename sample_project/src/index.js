@@ -9,9 +9,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Body from './components/Body';
 import About from './components/About';
 import Contact from './components/Contact';
-import Header from './components/Header';
 import Errorelement from './components/Errorelement';
-import Dynamic from './components/Dynamic';
+import Profile from './components/Profile';
+import Menu from './components/Menu';
 
 
 const appRouter = createBrowserRouter(
@@ -28,24 +28,26 @@ const appRouter = createBrowserRouter(
       {
         path: "/about",
         element: <About />,
+
       },
       {
         path: "/contact us",
         element: <Contact />,
       },
       {
-        path: "/dynamic/:id",
-        element: <Dynamic/>
+        path: "/menu/:id",
+        element: <Menu />,
       }
+
     ]
   }
   ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <RouterProvider router={appRouter} />
-  </React.StrictMode>
+  /* </React.StrictMode> */
 );
 
 

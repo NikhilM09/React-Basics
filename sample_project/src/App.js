@@ -12,13 +12,6 @@ function App() {
       <Header logo="Navbar" label1="Home" label2="About" label3="Contact Us" label4="Cart" />
       <Outlet/>
       {/* <TextForm/> */}
-      {/* <Body/> */}
-  {/* conditionally render the components based on the route : */}
-      {/* "/" : App
-      "/about" : About
-      "/contact us" : Contact */}
-            {/* <About/> */}
-      {/* <Contact/> */}
     </div>
     
   );
