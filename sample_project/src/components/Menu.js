@@ -1,32 +1,34 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import useRestaurantMenu from '../utilities/useRestaurantMenu';
 
 const Menu = () => {
-    const [items, setItems] = useState([]);
-    const [nestedItems, setNestedItems] = useState([]);
-    const normalItem = "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
-    const nestedItem = "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory";
+    // const [items, setItems] = useState([]);
+    // const [nestedItems, setNestedItems] = useState([]);
+    // const normalItem = "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
+    // const nestedItem = "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory";
     const {id} = useParams();
     console.log(id);
-    const getMenu = async () => {
-        const data = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.0759837&lng=72.8776559&restaurantId=${id}&submitAction=ENTER`);
-        const menu = await data.json();
-        console.log("menu", menu?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((item) => item?.card?.card["@type"] === normalItem));
-        console.log("nestedMenu", menu?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((item) => item?.card?.card["@type"] === nestedItem));
-        setItems(menu?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((item) => item?.card?.card["@type"] === normalItem));
-        setNestedItems(menu?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((item) => item?.card?.card["@type"] === nestedItem));
-    }
+    const {normal_items, nested_items} = useRestaurantMenu(id);
+    // const getMenu = async () => {
+    //     const data = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.0759837&lng=72.8776559&restaurantId=${id}&submitAction=ENTER`);
+    //     const menu = await data.json();
+    //     console.log("menu", menu?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((item) => item?.card?.card["@type"] === normalItem));
+    //     console.log("nestedMenu", menu?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((item) => item?.card?.card["@type"] === nestedItem));
+    //     setItems(menu?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((item) => item?.card?.card["@type"] === normalItem));
+    //     setNestedItems(menu?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((item) => item?.card?.card["@type"] === nestedItem));
+    // }
 
-    useEffect(() => {
-        getMenu()
-    }, [])
-    console.log("item", items);
-    console.log("nestedItem", nestedItems);
+    // useEffect(() => {
+    //     getMenu()
+    // }, [])
+    // console.log("item", items);
+    // console.log("nestedItem", nestedItems);
 
     return (
         <>
             <div className="mx-5">
-                {items.map((item) => (
+                {normal_items.map((item) => (
                     <div key={item?.card?.card?.title}>
                         <h3 className="h3">{item?.card?.card?.title}</h3>
                         {item?.card?.card?.itemCards.map((dish, index) => (
@@ -37,7 +39,7 @@ const Menu = () => {
                 ))}
             </div>
             <div className="mx-5">
-                {nestedItems.map((nestedItem, index) => (
+                {nested_items.map((nestedItem, index) => (
                     <div key={nestedItem?.card?.card?.title}>
                         <h3 className="h3">{nestedItem?.card?.card?.title}</h3>
                         <div>

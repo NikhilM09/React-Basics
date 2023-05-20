@@ -2,6 +2,7 @@ import React from "react";
 import Restaurantcard from "./Restaurantcard"
 import { useState, useEffect } from "react";
 import Searchbar from "./Searchbar";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [cardArray, setCardArray] = useState([]);
@@ -21,14 +22,16 @@ const Body = () => {
 
   console.log("rendered");
 
-  return masterCards?.length === 0 ? <h1>Loading....</h1> : (
+  return masterCards?.length === 0 ? <Shimmer/> : (
     <div className="container">
       <Searchbar cardCollection={masterCards} updater={setCardArray} placeholder="Search for Restaurant" />
       {/* {console.log("cardArray",cardArray)} */}
+      {console.log("cards", cardArray)}
+      {console.log("masterCards", masterCards)}
       <div className="bodyContainer container">
-        { cardArray.length === 0 ? <h1>No restaurant matches your search</h1> :
+        { cardArray.length === 0 ? <h1>No restaurant found</h1> : 
           cardArray.map((card) => {
-            console.log("cardarray", cardArray.length)
+            // console.log("cardarray", cardArray.length)
             return !card ? <h1>No restaurant found</h1> : <Restaurantcard {...card.data} key={card.data.id} />
           }
           )
