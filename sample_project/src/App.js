@@ -5,11 +5,12 @@ import Body from './components/Body';
 import About from './components/About';
 import Contact from './components/Contact';
 import {Outlet} from 'react-router-dom';
+import logo from './assets/icons/imgbin-logo-brand-font-food-court-tiffin-now-hiring-LVmzf4xFFjhLKTnCSKLFeeQyu-removebg-preview.png';
 
 function App() {
   return (
     <div className="site-wrapper">
-      <Header logo="Navbar" label1="Home" label2="About" label3="Contact Us" label4="Cart" />
+      <Header logo={logo} label1="Home" label2="About" label3="Contact Us" label4="Cart" />
       <Outlet/>
       {/* <TextForm/> */}
     </div>

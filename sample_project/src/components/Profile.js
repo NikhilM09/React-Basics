@@ -1,41 +1,26 @@
-import React from 'react';
+import { useEffect } from 'react';
+import {useState} from 'react';
 
-class Profile extends React.Component{
-    constructor(props){
-        super(props);
-        console.log("constructor called"+this.props.name);
-        this.state = {
-            name : "Damu",
-            relationship_status : "Single"
-        }
-    }
+const Profile = ({name, age}) => {
 
-    componentDidMount(){
-        console.log("componentDidMount called"+this.props.name);
-    }
+    const[count, setCount] = useState(4);
+    const [count1, setCount1] = useState(45);
 
-    componentDidUpdate(){
-        console.log("Component did update called"+this.props.name);
-    }
+    useEffect(()=>{
+        // console.log("useEffect called");
+    }, [])
 
-    render(){
-        console.log("render called"+this.props.name);
-        return(
-            <div>
-                 <h1 className="h1">This is our first class based component : {this.props.id}{this.state.name}</h1>
-                 <h3 className="h3">Name of the component is {this.props.name}</h3>
-                <button onClick={
-                    ()=>{
-                        this.setState(
-                        {
-                        relationship_status:"Married",
-                        name:"Dhamu"
-                    })
-                    }
-                }>Change status</button>
-            </div>        
-        )
-    }
+
+    return (
+        <div>
+            <h1 className="h1">This is my profile component : {name} and {age}</h1>
+            <h3 className="h3">state variable is {count}</h3>
+            <h3 className="h3">Second state variable is {count1}</h3>
+            <button onClick={()=>setCount1(count1+1)}>Change state 1</button>
+        </div>
+    )
 }
 
 export default Profile;
+
+//const [name] = useState("SITH");

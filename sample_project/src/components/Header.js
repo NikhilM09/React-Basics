@@ -5,9 +5,9 @@ const Header = ({logo, label1, label2, label3, label4}) => {
     // console.log("render is called");
     const [title, setTitle] = useState("navbar");
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-warning shadow sticky-top">
+        <nav className="navbar navbar-expand-lg navbar-light bg-warning shadow sticky-top py-0">
             <div className="container">
-                <a className="navbar-brand" href="#">{logo}</a>
+                <a className="navbar-brand py-0" href="#"><img src={logo} height="50px"></img></a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -34,7 +34,7 @@ const Header = ({logo, label1, label2, label3, label4}) => {
                             <Link className="nav-link text-dark" to={"/"+label3} tabIndex="-1" aria-disabled="true">{label3}</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link text-dark" to="/dynamic" tabIndex="-1" aria-disabled="true">{label4}</Link>
+                            <a className="nav-link text-dark" to="/dynamic" tabIndex="-1" aria-disabled="true">{label4}</a>
                         </li>
                     </ul>
                     {/* <form className="d-flex">

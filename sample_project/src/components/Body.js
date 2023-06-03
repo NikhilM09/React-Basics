@@ -6,7 +6,7 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [cardArray, setCardArray] = useState([]);
-  const [masterCards, setMasterCards] = useState("");
+  const [masterCards, setMasterCards] = useState([]);
 
 
   async function getRestaurantData() {
@@ -18,16 +18,18 @@ const Body = () => {
 
   useEffect(() => {
     getRestaurantData();
+    console.log("useEffect called");
   }, []);
 
   console.log("rendered");
+  console.log("masterCards", masterCards)
 
-  return masterCards?.length === 0 ? <Shimmer/> : (
+  return masterCards?.length === 0 ?
+  <Shimmer/>
+   : (
     <div className="container">
       <Searchbar cardCollection={masterCards} updater={setCardArray} placeholder="Search for Restaurant" />
       {/* {console.log("cardArray",cardArray)} */}
-      {console.log("cards", cardArray)}
-      {console.log("masterCards", masterCards)}
       <div className="bodyContainer container">
         { cardArray.length === 0 ? <h1>No restaurant found</h1> : 
           cardArray.map((card) => {
@@ -38,8 +40,8 @@ const Body = () => {
         }
       </div>
     </div>
+    
   )
-
 }
 
 export default Body;

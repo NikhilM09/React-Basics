@@ -10,8 +10,8 @@ import Body from './components/Body';
 import About from './components/About';
 import Contact from './components/Contact';
 import Errorelement from './components/Errorelement';
-import Profile from './components/Profile';
 import Menu from './components/Menu';
+import Profile from './components/Profile';
 
 
 const appRouter = createBrowserRouter(
@@ -26,9 +26,14 @@ const appRouter = createBrowserRouter(
         element: <Body />,
       },
       {
-        path: "/about",
+        path: "about",
         element: <About />,
-
+        children:[
+          {
+            path: "profile",  
+            element: <Profile />,
+          }
+        ]
       },
       {
         path: "/contact us",
