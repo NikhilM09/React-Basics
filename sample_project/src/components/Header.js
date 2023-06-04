@@ -1,8 +1,10 @@
 import {useState} from 'react';
 import {Link} from 'react-router-dom';
+import useOnline from '../utilities/useOnline';
 
 const Header = ({logo, label1, label2, label3, label4}) => {
     // console.log("render is called");
+    const network_status = useOnline();
     const [title, setTitle] = useState("navbar");
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-warning shadow sticky-top py-0">
@@ -36,11 +38,15 @@ const Header = ({logo, label1, label2, label3, label4}) => {
                         <li className="nav-item">
                             <a className="nav-link text-dark" to="/dynamic" tabIndex="-1" aria-disabled="true">{label4}</a>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link text-dark" to="/instamart" tabIndex="-1" aria-disabled="true">Instamart</Link>
+                        </li>
                     </ul>
                     {/* <form className="d-flex">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                         <button className="btn btn-outline-success" type="submit">Search</button>
                     </form> */}
+                    <h3 className="h3">{network_status ? "🟢" : "🔴"}</h3>
                 </div>
             </div>
         </nav>
