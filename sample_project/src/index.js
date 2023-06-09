@@ -1,4 +1,4 @@
-import React, {lazy, Suspense} from 'react';
+import React, {lazy, Suspense, useState} from 'react';
 import ReactDOM from 'react-dom/client';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
@@ -8,15 +8,17 @@ import App from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Body from './components/Body';
 import About from './components/About';
-import Contact from './components/Contact';
+// import Contact from './components/Contact';
 import Errorelement from './components/Errorelement';
-import Menu from './components/Menu';
+// import Menu from './components/Menu';
 import Profile from './components/Profile';
 import Shimmer from './components/Shimmer';
 // import Instamart from './components/Instamart';
+const Instamart = lazy(()=> import ('./components/Instamart'));
+const Contact = lazy(()=> import ('./components/Contact'));
+const Menu = lazy(()=>import('./components/Menu'));
 
 
-const Instamart = lazy(()=> import ('./components/Instamart'))
 
 const appRouter = createBrowserRouter(
   [
@@ -27,31 +29,30 @@ const appRouter = createBrowserRouter(
       children: [
         {
           path: "",
-          element: <Body />,
+          element: <Body/>,
         },
         {
-          path: "about",
+          path: "/About",
           element: <About />,
           children: [
             {
               path: "profile",
-              element: <Profile />,
+              element: <Profile />
             }
           ]
         },
         {
-          path: "/contact us",
-          element: <Contact />,
+          path: "/instamart",
+          element: <Suspense><Instamart /></Suspense>
         },
         {
-          path: "/instamart",
-          element: <Suspense fallback={<Shimmer/>}><Instamart /></Suspense>,
+          path: "/contact_us",
+          element: <Suspense><Contact /></Suspense>
         },
         {
           path: "/menu/:id",
-          element: <Menu />,
+          element: <Suspense><Menu /></Suspense>
         }
-
       ]
     }
   ])

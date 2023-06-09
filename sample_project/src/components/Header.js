@@ -2,7 +2,7 @@ import {useState} from 'react';
 import {Link} from 'react-router-dom';
 import useOnline from '../utilities/useOnline';
 
-const Header = ({logo, label1, label2, label3, label4}) => {
+const Header = ({logo, label1, label2, label3, label5}) => {
     // console.log("render is called");
     const network_status = useOnline();
     const [title, setTitle] = useState("navbar");
@@ -33,13 +33,10 @@ const Header = ({logo, label1, label2, label3, label4}) => {
                             </ul>
                         </li> */}
                         <li className="nav-item">
-                            <Link className="nav-link text-dark" to={"/"+label3} tabIndex="-1" aria-disabled="true">{label3}</Link>
+                            <Link className="nav-link text-dark" to={"/contact_us"} tabIndex="-1" aria-disabled="true">{label3}</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link text-dark" to="/dynamic" tabIndex="-1" aria-disabled="true">{label4}</a>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link text-dark" to="/instamart" tabIndex="-1" aria-disabled="true">Instamart</Link>
+                            <Link className="nav-link text-dark" to={"/"+label5} tabIndex="-1" aria-disabled="true">{label5}</Link>
                         </li>
                     </ul>
                     {/* <form className="d-flex">

@@ -1,4 +1,5 @@
 import './App.css';
+import {useState} from 'react';
 import Header from './components/Header';
 import TextForm from './components/TextForm';
 import Body from './components/Body';
@@ -10,7 +11,7 @@ import logo from './assets/icons/imgbin-logo-brand-font-food-court-tiffin-now-hi
 function App() {
   return (
     <div className="site-wrapper">
-      <Header logo={logo} label1="Home" label2="About" label3="Contact Us" label4="Cart" />
+      <Header logo={logo} label1="Home" label2="About" label3="Contact us" label5="Instamart"/>
       <Outlet/>
       {/* <TextForm/> */}
     </div>

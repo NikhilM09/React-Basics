@@ -31,7 +31,7 @@ const Body = () => {
         { restaurantObj?.collection.length === 0 ? <h1>No restaurant found</h1> : 
           restaurantObj?.collection.map((card) => {
             // console.log("cardarray", cardArray.length)
-            return !card ? <h1>No restaurant found</h1> : <Restaurantcard {...card.data} key={card.data.id} />
+            return !card ? <h1>No restaurant found</h1> : <Restaurantcard {...card.data} key={card.data.id}/>
           }
           )
         }
