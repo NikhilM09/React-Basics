@@ -9,18 +9,17 @@ const Menu = () => {
     const { id } = useParams();
     const menu = useRestaurantMenu(id);
     const theme = useContext(ThemeContext);
-    console.log(menu);
+    console.log("menu", menu);
     const dispatch = useDispatch();
     const handleAddItem = (dish) => {
         console.log("dish", dish);
         dispatch(addItem(dish));
     }
 
-    return (
+    return menu.normalItems || menu.nestedItems ? (
         <>
-
             <div className="mx-5">
-                {menu.normalItems.map((item) => (
+                {menu.normalItems && menu.normalItems.map((item) => (
                     <div key={item?.card?.card?.title}>
                         <h3 className={`${theme?.theme === "light" ? "text-dark" : "text-light"} h3`}>{item?.card?.card?.title}</h3>
                         {item?.card?.card?.itemCards.map((dish, index) => (
@@ -34,7 +33,7 @@ const Menu = () => {
                 ))}
             </div>
             <div className="mx-5">
-                {menu.nestedItems.map((nestedItem, index) => (
+                {menu.nestedItems && menu.nestedItems.map((nestedItem, index) => (
                     <div key={nestedItem?.card?.card?.title}>
                         <h3 className={`${theme?.theme === "light" ? "text-dark" : "text-light"} h3`}>{nestedItem?.card?.card?.title}</h3>
                         <div>
@@ -54,7 +53,7 @@ const Menu = () => {
                 ))}
             </div>
         </>
-    )
+    ) : (<h1 className="h1 text-center my-2">Menu is not available currently for this restaurant</h1>)
 }
 
 export default Menu;

@@ -10,7 +10,7 @@ import Body from './components/Body';
 // import About from './components/About';
 // import Contact from './components/Contact';
 import Errorelement from './components/Errorelement';
-// import Menu from './components/Menu';
+import Menu from './components/Menu';
 import Profile from './components/Profile';
 import Shimmer from './components/Shimmer';
 // import Instamart from './components/Instamart';
