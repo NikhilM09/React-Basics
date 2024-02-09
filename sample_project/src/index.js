@@ -1,4 +1,4 @@
-import React, {lazy, Suspense} from 'react';
+import React, {lazy, Suspense, useState} from 'react';
 import ReactDOM from 'react-dom/client';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
@@ -10,7 +10,7 @@ import Body from './components/Body';
 // import About from './components/About';
 // import Contact from './components/Contact';
 import Errorelement from './components/Errorelement';
-import Menu from './components/Menu';
+// import Menu from './components/Menu';
 import Profile from './components/Profile';
 import Shimmer from './components/Shimmer';
 // import Instamart from './components/Instamart';
@@ -41,7 +41,7 @@ const appRouter = createBrowserRouter(
           children: [
             {
               path: "profile",
-              element: <Profile />,
+              element: <Profile />
             }
           ]
         },

@@ -42,6 +42,6 @@ const Instamart =() =>{
             
         </div>
     )
-}
+} 
 
 export default Instamart;
