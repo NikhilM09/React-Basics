@@ -50,13 +50,31 @@ table {
   pointer-events: none;
 }
 
+.dark-mode #root{
+  background-color:#333333;
+}
 
 .restaurantCard{
   width:23%;
   border-radius: 5px;
   margin:1%;
+  color:black!important;
   cursor:pointer;
   text-decoration:none;
+}
+
+.cuisines{
+  display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dark-mode .restaurantCard{
+  background-color: #333333;
+  color:white!important;
+  /* border:1px solid white; */
 }
 
 .restaurantCard:hover{
@@ -64,6 +82,10 @@ table {
   transition: all 0.3s ease-in-out;
 }
 
+.dark-mode .restaurantCard:hover{
+  box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
+  transition: all 0.3s ease-in-out;
+}
 .bodyContainer{
   display:flex;
   flex-wrap:wrap;
@@ -97,11 +119,12 @@ table {
   cursor:pointer;
 }
 
-.shimmerCard{
-  width:200px;
-  height:200px;
-  background-color: rgb(202, 201, 201);
-  border-radius: 5px;
+.dark-mode .shimmer-card{
+  background-color:#333333;
+}
+
+.dark-mode .shimmer-thumbnail{
+  background:#333333!important;
 }
 
 .shimmerWrapper{

@@ -1,8 +1,8 @@
 
-import {Component} from "react";
+import { Component } from "react";
 import Profileclass from "./Profileclass";
 import Profile from "./Profile";
-import { render } from "@testing-library/react";
+import UserContext from "../utilities/UserContext";
 
 // const About = () => {
 //     return(
@@ -17,36 +17,48 @@ import { render } from "@testing-library/react";
 
 
 class About extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         console.log("Parent constructor called");
     }
 
-    componentDidMount(){
+    componentDidMount() {
         console.log("Parent componentDidMount method called");
-        this.timer = setInterval(()=>{
+        this.timer = setInterval(() => {
             console.log("I am setInterval");
-        },1000)
+        }, 1000)
     }
 
-    componentDidUpdate(){
+    componentDidUpdate() {
         console.log("parent componentDidUpdate method called");
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         clearInterval(this.timer)
         console.log("parent componentWillUnmount method called");
     }
-    render(){
+    render() {
         console.log("Parent render method called");
-        return(
-            <div className="text-center">
-            <h1 className="h1">This is my About us Page with class based component</h1>
-            <h4 className="h4">This is a food ordering website</h4>
-            <Profile name="SITH" age="32"/>
-            <Profileclass name="class1" age="40"/>
-            {/* <Profileclass name="class2" age="40"/> */}
-        </div>
+        return (
+           
+                <div className="text-center">
+                    <h1 className="h1">This is my About us Page with class based component</h1>
+                    <h4 className="h4">This is a food ordering website</h4>
+                    <Profile name="SITH" age="32" />
+                    <Profileclass name="class1" age="40" />
+                    {/* <Profileclass name="class2" age="40"/> */}
+                    <UserContext.Consumer>
+                        {(value)=>(
+                        <>
+                        {console.log("value", value)};
+                        <h3 className = "h3">Name : {value?.userData?.name}</h3>
+                        <h4 className = "h4"> Email : {value?.userData?.email} </h4>
+                        </>                  
+                        )
+                        }
+                    </UserContext.Consumer>
+                </div>
+            
         )
     }
 }

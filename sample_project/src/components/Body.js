@@ -5,12 +5,12 @@ import Shimmer from "./Shimmer";
 import useRestaurant from "../utilities/useRestaurant";
 import useOnline from "../utilities/useOnline";
 
-const Body = () => {
+const Body = ({user}) => {
 
   const network_status = useOnline();
   const restaurantObj = useRestaurant();
 
-
+ console.log("restaurantObj", restaurantObj);
 
   if(!network_status){
     return (
@@ -31,8 +31,11 @@ const Body = () => {
         { restaurantObj?.collection.length === 0 ? <h1>No restaurant found</h1> : 
           restaurantObj?.collection.map((card) => {
             // console.log("cardarray", cardArray.length)
-            return !card ? <h1>No restaurant found</h1> : <Restaurantcard {...card.data} key={card.data.id} />
-          }
+            return !card ? <h1>No restaurant found</h1> : <Restaurantcard 
+            {...card?.info}
+             key={card?.info?.id}
+             />
+          } 
           )
         }
       </div>
